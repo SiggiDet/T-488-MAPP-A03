@@ -1,0 +1,76 @@
+{
+    "Movies" : [
+        {
+            "ID" : 1,
+            "Name" :"House of Gucci",
+            "Image" : "https://m.media-amazon.com/images/M/MV5BZThjMTA5YjgtZmViZi00YjY0LTk5MzQtMjUwMGEzZGVlYzFjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+            "Plot" :"When Patrizia Reggiani, an outsider from humble beginnings, marries into the Gucci family, her unbridled ambition begins to unravel the family legacy and triggers a reckless spiral of betrayal, decadence, revenge -- and ultimately murder.",
+            "Duration" : "2h 37 min",
+            "Year of release" : "2021",
+            "Genre" : ["Drama", "thriller", "Crime"]
+        },
+        {
+            "ID" : 2,
+            "Name" :"Encanto",
+            "Image" : "https://images-na.ssl-images-amazon.com/images/I/A1lGZsWoEtL.jpg",
+            "Plot" :"The Madrigals are an extraordinary family who live hidden in the mountains of Colombia in a charmed place called the Encanto. The magic of the Encanto has blessed every child in the family with a unique gift -- every child except Mirabel. However, she soon may be the Madrigals last hope when she discovers that the magic surrounding the Encanto is now in danger.",
+            "Duration" : "1h 49 min",
+            "Year of release" : "2021",
+            "Genre" : ["Comedy", "Adventure", "Cartoon"]
+        },
+        {
+            "ID" : 3,
+            "Name" :"Cop Secret",
+            "Image" : "https://upload.wikimedia.org/wikipedia/en/9/96/Cop-secret-icelandic-poster.jpg",
+            "Plot" :"Cop Secret is a 2021 Icelandic action comedy film directed by Hannes Þór Halldórsson from a screenplay that he co-wrote alongside Nína Pedersen and Sverrir Þór Sverrisson. The film stars Auðunn Blöndal, Egill Einarsson, Björn Hlynur Haraldsson and Steinunn Ólína Þorsteinsdóttir.",
+            "Duration" : "1h 39 min",
+            "Year of release" : "2021",
+            "Genre" : ["Comedy", "Action"]
+        },
+        {
+            "ID" :4,
+            "Name" :"Ghostbusters: Afterlife",
+            "Image" : "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQqnjQN8p2Vep9vbC-cTRQhFsbSfOnBtaT8MGYRB3tfPDYbyi6l",
+            "Plot" :"When a single mother and her two children move to a new town, they soon discover they have a connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
+            "Duration" : "2h 04 min",
+            "Year of release" : "2021",
+            "Genre" : ["Comedy", "Fantasy"]
+        },
+        {
+            "ID" :5,
+            "Name" :"Eternals",
+            "Image" : "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZBNOF324-MHMcNrSD8mFRBD3eEfj5lfVT69NMC16cFxLH0iku",
+            "Plot" :"The Eternals, a race of immortal beings with superhuman powers who have secretly lived on Earth for thousands of years, reunite to battle the evil Deviants.",
+            "Duration" : "2h 37 min",
+            "Year of release" : "2021",
+            "Genre" : ["Action","Adventure"]
+        },
+        {
+            "ID" :6,
+            "Name" :"Venom: Let There Be Carnage",
+            "Image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKwv-tIaNSf3BW3wGfvG8TvpHmt92aObz9MxxROvVgsW8mlmQw",
+            "Plot" :"Eddie Brock is still struggling to coexist with the shape-shifting extraterrestrial Venom. When deranged serial killer Cletus Kasady also becomes host to an alien symbiote, Brock and Venom must put aside their differences to stop his reign of terror.",
+            "Duration" : "1h 37 min",
+            "Year of release" : "2021",
+            "Genre" : ["Action","Adventure"]
+        },
+        {
+            "ID" :7,
+            "Name" :"The French Dispatch",
+            "Image" : "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHZ28VU-SMkaUGIGAT_RsKRFI1sd3wSEftFmPxE0nEA_ex5dzM",
+            "Plot" :"A love letter to journalists set in an outpost of an American newspaper in a fictional 20th-century French city that brings to life a collection of stories published in 'The French Dispatch.'",
+            "Duration" : "1h 48min",
+            "Year of release" : "2021",
+            "Genre" : ["Romance","Comedy"]
+        },
+        {
+            "ID" :8,
+            "Name" :"No Time To Die",
+            "Image" : "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTjsL_VQnwmAa-wuEARqPxzJRF2q6j9RJwFeNSan_-INrXXY6Yy",
+            "Plot" :"James Bond is enjoying a tranquil life in Jamaica after leaving active service. However, his peace is short-lived as his old CIA friend, Felix Leiter, shows up and asks for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond on the trail of a mysterious villain who's armed with a dangerous new technology.",
+            "Duration" : "2h 43min",
+            "Year of release" : "2021",
+            "Genre" : ["Action","Adventure"]
+        }
+    ]
+}
