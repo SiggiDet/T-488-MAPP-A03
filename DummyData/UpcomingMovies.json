@@ -1,0 +1,31 @@
+{
+    "UpcomingMovies" : [
+        {
+            "ID" :1,
+            "Name" :"Spider-Man: No Way Home",
+            "Image" : "https://preview.redd.it/lvcfzmdrr2171.jpg?auto=webp&s=9f219548d713b12f6f3a6a1ca7e13932e14e5171",
+            "Plot" :"With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer able to separate his normal life as Peter Parker from the high stakes of being a superhero. When Peter asks for help from Doctor Strange, the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+            "Duration" : "2h 28m",
+            "Year of release" : "2021",
+            "Genre" : ["Action","Adventure"]
+        },
+        {
+            "ID" :2,
+            "Name" :"Matrix : Resurrections",
+            "Image" : "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSjcPQFm3nIyVqAKaPKby9-zELJzPeoq6l1xQxdkp2l-Fvy0wBf",
+            "Plot" :"Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.",
+            "Duration" : "2h 28m",
+            "Year of release" : "2021",
+            "Genre" : ["Sci-Fi","Adventure"]
+        },
+        {
+            "ID" :3,
+            "Name" :"The King's Man",
+            "Image" : "https://static.wikia.nocookie.net/kingsman-the-secret-service/images/e/e3/The_King%27s_Man_main_poster.jpg/revision/latest?cb=20200621202303",
+            "Plot" :"One man must race against time to stop history's worst tyrants and criminal masterminds as they get together to plot a war that could wipe out millions of people and destroy humanity.",
+            "Duration" : "2h 11m",
+            "Year of release" : "2022",
+            "Genre" : ["Action","Adventure"]
+        }
+    ]
+}

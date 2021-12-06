@@ -1,0 +1,94 @@
+{
+    "Cinema" : [
+        {
+            "id" : 1,
+            "Name": "Bíó Paradís",
+            "Description": "Bíó Paradís sýnir nýjar áhugaverðar kvikmyndir frá öllum heimshornum auk hverskyns eldri mynda erlendra sem innlendra, hýsir kvikmyndahátíðir og stendur fyrir fjölbreyttum kvikmyndatengdum viðburðum. Bíó Paradís er sannarlega heimili kvikmyndanna, fyrsta og eina listræna kvikmyndahúsið á Íslandi.",
+            "Website" : "https://bioparadis.is/",
+            "Address" : "Hverfisgötu 54, 101 Reykjavík",
+            "Phone": "412 7711",
+            "Movies" : [1,2,3,4,6,7,5,8],
+            "Upcoming Movies" : [1,2,3]
+        },
+        {
+            "id" : 2,
+            "Name": "Sambíón-Álfabakki",
+            "Description": "Sambíóin Álfabakka var byggt árið 1982 og er eitt fullkomnasta kvikmyndahús á landinu. Þetta var fyrsta kvikmyndahúsið á norðurlöndum sem var búið THX kerfinu. Bíóið var fyrst kvikmyndahúsa á Íslandi til að bjóða uppá frumsýningar glænýrra kvikmynda og oft voru sankallaðar evrópufrumsýningar.",
+            "Website" : "https://www.sambio.is/Websales",
+            "Address" : "Álfabakki 8",
+            "Phone": "575 8900",
+            "Movies" : [1,2,3,4,8,6],
+            "Upcoming Movies" : [1,2,3]
+        },
+        {
+            "id" : 3,
+            "Name": "Smárabíó",
+            "Description": "Okkar takmark er skýrt; að bjóða gestum upp á hámarksgæði í öllum sölum og bestu skemmtunina.Smárabíó rúmar um 1.000 manns í sæti í fimm sölum en í öllum sölum er fullkomin stafræn tækni ásamt laser myndægði frá Barco í öllum sölum. Smárabíó MAX – stærsti salur bíósins skartar Dolby Atmos hljóðkerfi, sem er eitt það besta í boði í heiminum í dag.",
+            "Website" : "https://bio.smarabio.is/smarabio",
+            "Address" : " Hagasmára 1, 201 Kópavogi",
+            "Phone": "564 0000",
+            "Movies" : [1,2,3,4,5,6,7,8],
+            "Upcoming Movies" : [1,2,3]
+        },
+        {
+            "id" : 4,
+            "Name": "Háskólabíó",
+            "Description": "Háskólabíó hefur í gegnum árin verið heimili íslenskra kvikmynda og listrænna gæðamynda frá öllum heimshornum auk þess sem hér eru sýndar stórar vinsælar myndir um leið og þær koma út. Háskólabíó hýsir árlega ýmsar kvikmyndahátíðir, til að mynda Franska kvikmyndahátíð í upphafi hvers árs.",
+            "Website" : "https://bio.smarabio.is/haskolabio",
+            "Address" : "Hagatorgi, 107 Reykjavík",
+            "Phone": "591 5145",
+            "Movies" : [1,2,6,7,5],
+            "Upcoming Movies" : [1,3]
+        },
+        {
+            "id" : 5,
+            "Name": "Borgarbíó",
+            "Description": "Kvikmyndahúsið hefur í áraraðir verið leiðandi meðal kvikmyndahúsa á landsbyggðinni hvað varðar tæknileg gæði, fjölbreytni sýningartíma og framúrskarandi þjónustu. ",
+            "Website" : "https://bio.smarabio.is/borgarbio",
+            "Address" : " Hólabraut 12, 600 Akureyri",
+            "Phone": "462 3500",
+            "Movies" : [1,4,7,5],
+            "Upcoming Movies" : [1,2,3]
+        },
+        {
+            "id" : 6,
+            "Name": "Sambíóin-Egilshöll",
+            "Description": "Flottasta kvikmyndahús landsins.",
+            "Website" : "https://www.sambio.is/Websales#page=%2Fwebsales%2Fselectevent%2F",
+            "Address" : "Fossaleyni 1",
+            "Phone": "575 8941",
+            "Movies" : [1,2,3,4,7,5],
+            "Upcoming Movies" : [1,2,3]
+        },
+        {
+            "id" : 7,
+            "Name": "Sambíóin-Kringlan",
+            "Description": "Sambíóin Kringlunni var byggt árið 1996 og var fyrsta kvikmyndahúsið á íslandi sem byggt var inní verslunarmiðstöð, fyrirmyndin var sótt til bandaríkjanna og bretlands. Kvikmyndahúsið er búið 3 sýningarsölum.",
+            "Website" : "https://www.sambio.is/Websales#page=%2Fwebsales%2Fselectevent%2F",
+            "Address" : "Kringlunni 4-6",
+            "Phone": "575 8900",
+            "Movies" : [1,2,7,5,8],
+            "Upcoming Movies" : [1,2,3]
+        },
+        {
+            "id" : 8,
+            "Name": "Sambíóin-Akureyri",
+            "Description": "Sambíóin á Akureyri er tveggja sala bíó sem tekur tæplega þrjú hundruð manns í sæti. Það er í hinu fornfræga húsi Nýja Bíó við Ráðhústorgið í miðbæ Akureyrar. ",
+            "Website" : "https://www.sambio.is/Websales#page=%2Fwebsales%2Fselectevent%2F",
+            "Address" : "Ráðhústorg 8",
+            "Phone": "575 8900",
+            "Movies" : [2,4,7,6],
+            "Upcoming Movies" : [1,2]
+        },
+        {
+            "id" : 9,
+            "Name": "Sambíóin-Keflavík",
+            "Description": "Sambíóin Keflavík voru fyrsta sambíóið, það var byggt árið 1941 af Eyjólfi Ásberg. Sambíóin keflavík er búið 2 sölum. Salur 1 var endurreistur árið 1998 og salur 2 var byggður 2001",
+            "Website" : "https://www.sambio.is/Websales#page=%2Fwebsales%2Fselectevent%2F",
+            "Address" : "Hafnargata 33",
+            "Phone": "575 8900",
+            "Movies" : [1,2,7,5],
+            "Upcoming Movies" : [1,2,3]
+        }
+    ]
+}
