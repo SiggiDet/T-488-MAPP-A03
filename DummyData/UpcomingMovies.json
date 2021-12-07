@@ -7,7 +7,8 @@
             "Plot" :"With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer able to separate his normal life as Peter Parker from the high stakes of being a superhero. When Peter asks for help from Doctor Strange, the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
             "Duration" : "2h 28m",
             "Year of release" : "2021",
-            "Genre" : ["Action","Adventure"]
+            "Genre" : ["Action","Adventure"],
+            "Trailer" : "https://www.youtube.com/watch?v=ZYzbalQ6Lg8&ab_channel=MarvelEntertainment"
         },
         {
             "ID" :2,
@@ -16,7 +17,8 @@
             "Plot" :"Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.",
             "Duration" : "2h 28m",
             "Year of release" : "2021",
-            "Genre" : ["Sci-Fi","Adventure"]
+            "Genre" : ["Sci-Fi","Adventure"],
+            "Trailer" : "https://www.youtube.com/watch?v=nNpvWBuTfrc&ab_channel=WarnerBros.Pictures"
         },
         {
             "ID" :3,
@@ -25,7 +27,8 @@
             "Plot" :"One man must race against time to stop history's worst tyrants and criminal masterminds as they get together to plot a war that could wipe out millions of people and destroy humanity.",
             "Duration" : "2h 11m",
             "Year of release" : "2022",
-            "Genre" : ["Action","Adventure"]
+            "Genre" : ["Action","Adventure"],
+            "Trailer" : "https://www.youtube.com/watch?v=5zdBG-iGfes&ab_channel=20thCenturyStudios"
         }
     ]
 }
