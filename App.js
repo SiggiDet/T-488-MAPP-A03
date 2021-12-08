@@ -6,12 +6,14 @@ import CinemaDetail from './views/cinemadetail';
 import Movies from './views/movies';
 import Footer from './views/footer'
 
+import DisplayUpcomingMovies from './UpcomingMoviesFolder/DisplayUpcomingMovies';
 
 export default function App() {
   return (
     <View style={styles.container}>
-
-      <StatusBar style="auto" />
+      {/* <Text>Open up App.js to start working on your app!</Text>
+      <StatusBar style="auto" /> */}
+      <DisplayUpcomingMovies/>
     </View>
   );
 }
