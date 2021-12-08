@@ -9,7 +9,7 @@ import UpcomingMovieSite from './UpcomingMovieSite';
 const customData = require('../DummyData/UpcomingMovies.json');
 const UpcomingMovies = customData.UpcomingMovies;
 
-const  DisplayUpcomingMovies= () => {
+const  DisplayUpcomingMovies= (props) => {
     return (
         <ScrollView delaysContentTouches = {true} >
             {UpcomingMovies.map(
