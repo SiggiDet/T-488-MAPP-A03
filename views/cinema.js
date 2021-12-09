@@ -3,6 +3,8 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Lin
 
 
 const customData = require('../DummyData/Cinema');
+const Cinemas = customData.Cinema.sort(function (one, another) {return one.Name.localeCompare(another.Name);});
+
 
 
 const  CinemaList = () => {
@@ -10,10 +12,9 @@ const  CinemaList = () => {
         <View>
             <View style={styles.header}>
             <Text style={styles.headline}>Bíó</Text></View>
-            
            <ScrollView>
             <View style={styles.container}>
-                {customData.Cinema.map(
+                {Cinemas.map(
                     Cinema => {
                         return(
                                 <SafeAreaView>
@@ -21,7 +22,7 @@ const  CinemaList = () => {
                                     <View style={styles.nameContainer}>
                                     <View style={styles.row}>
                                         <Text style = {styles.nameTxt}>{Cinema.Name}</Text>
-                                        <Text style = {styles.urlTxt} onPress={() => {Linking.openURL(Cinema.Website);}}>Vefsíða</Text>
+                                        <Text style = {styles.urlTxt} onPress={() => {Linking.openURL(Cinema.Website);}}>{Cinema.Website}</Text>
                                     </View> 
                                     </View>
                                 </TouchableOpacity>
@@ -81,4 +82,7 @@ const styles = StyleSheet.create({
       }
 
     
+
+
+      
     });
