@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Linking, Image} from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Linking, Image, Button} from 'react-native';
+import ReadMore from 'react-native-read-more-text';
 
 
 const customData = require('../DummyData/Movies');
@@ -9,18 +10,32 @@ const  MovieList = () => {
     return (
         <View>
            <ScrollView>
-            <View style={styles.container}>
+               <View style={styles.MovieBox}>
                 {customData.Movies.map(
                     Movies => {
                         return(
-                                <SafeAreaView>
-                                    <View style={styles.container}>
-                                        <Text style={styles.title}>{Movies.Name}</Text>
-                                        <Text style={styles.nameTxt}>Lengd: {Movies.Duration}</Text>
-                                        <Text style={styles.nameTxt}>Tegund: {Movies.Genre}</Text>
-                                        <Text style={styles.plot}>{Movies.Plot}</Text>
-                                        <Image style={styles.image}source={{uri: Movies.Image}}></Image></View>
-                                        <Text>Kaupa Miða</Text>
+                            <SafeAreaView>
+                                    <View style={styles.MovieBox}>
+                                        <View style={styles.MovieTitleHeader}>
+                                            <Text style={styles.MovieTitle}>{Movies.Name}</Text>
+                                        </View>
+                                        <View style = {styles.InformationBox}>
+                                            <Image style={styles.PosterStyle}source={{uri: Movies.Image}}></Image>
+                                            <View style = {styles.TextInformationBox}>
+                                                <Text style={styles.TextDescriptionStyle}>Lýsing: </Text>
+                                                <View>
+                                                    <ReadMore numberOfLines = {3}>{Movies.Plot}</ReadMore>
+                                                </View>
+                                                <Text style = {styles.TextDescriptionStyle}>Lengd:</Text>
+                                                <Text>{Movies.Duration}</Text>
+                                                <Text style = {styles.TextDescriptionStyle}>Tegund:</Text>
+                                                <Text>{Movies.Genre}</Text>
+                                                <View style = {styles.BuyButtonBox}>
+                                                <Button title = 'Kaupa Miða' onPress = {() => Linking.openURL(props.Movie.Trailer) }/>
+                                                </View>
+                                            </View>
+                                        </View>
+                                    </View>
                                 </SafeAreaView>
            
                             )})}
@@ -36,53 +51,48 @@ export default MovieList
 
 
 const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        padding: 24,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-      },
-      nameTxt: {
-        fontWeight: '300',
-        fontSize: 15,
-        width: 200,
-      },
-      urlTxt: {
-        fontWeight: '200',
-        color: '#222',
-        fontSize: 15,
-        padding: 5,
-      },
-      nameContainer: {
-        justifyContent: 'center',
-      },
-      headline: {
-        fontWeight: '200',
-        color: '#222',
-        fontSize: 40,
-        padding: 30,
-
-      },
-      header: {
-        padding: 15,
-        backgroundColor: "#1abc9c",
-
-      },
-      image: {
-        width: 300,
-        height: 500,
-
-      },
-      title: {
-        fontWeight: '200',
-        color: '#222',
-        fontSize: 40,
-        width: 300
-      },
-      plot: {
-        fontSize: 15,
-        marginTop: 20,
-        marginBottom:20 
-      }
+        MovieBox : {
+            width: 400,
+            height: 350,
+            borderColor: '#808080',
+            backgroundColor: "#D3D3D3",
+            borderTopWidth: 5,
+            padding: 5,
     
+        },
+        MovieTitleHeader : {
+            left: 10,
+            width: 325,
+            padding: 10
+        },
+        MovieTitle :{
+            fontWeight : 'bold',
+            fontSize: 23
+        },
+        InformationBox : {
+            marginLeft: 10,
+            flexDirection: "row"
+        },
+        PosterStyle: {
+            left: 10,
+            width: 150,
+            height: 250,
+            borderRadius: 10,
+            alignSelf: "flex-start"
+        },
+        TextDescriptionStyle :{
+            fontSize: 16,
+            fontWeight: 'bold',
+            left: 10
+        },
+        TextInformationBox : {
+            width: 180,
+            fontSize: 13,
+            marginLeft: 5,
+            left: 10
+        },
+        BuyButtonBox :{
+            marginTop: 25
+        },
     });
+    
