@@ -14,7 +14,8 @@ export default function App() {
       <StatusBar style="auto" />
       {/* <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" /> */}
-      <DisplayUpcomingMovies/>
+      {/* <DisplayUpcomingMovies/> */}
+      <Movies/>
     </View>
   );
 }
