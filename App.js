@@ -16,7 +16,8 @@ export default function App() {
       {/* <Movies/> */}
       {/* <DisplayUpcomingMovies/> */}
       {/* <CinemaList/> */}
-      <CinemaDetail/>
+      {/* <CinemaDetail/> */}
+      <Footer/>
     </View>
   );
 }
