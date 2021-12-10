@@ -28,8 +28,12 @@ const  MovieList = () => {
                                                 </View>
                                                 <Text style = {styles.TextDescriptionStyle}>Lengd:</Text>
                                                 <Text>{Movies.Duration}</Text>
-                                                <Text style = {styles.TextDescriptionStyle}>Tegund:</Text>
-                                                <Text>{Movies.Genre}</Text>
+                                                                                                
+                                                <Text style={styles.TextDescriptionStyle}>Tegund:</Text>
+						                            {Movies.Genre.map((genre) => (
+							                            <Text key={Movies.Name}>{genre}</Text>
+						                                            ))}
+
                                                 <View style = {styles.BuyButtonBox}>
                                                 <Button title = 'Kaupa Miða' onPress = {() => Linking.openURL(props.Movie.Trailer) }/>
                                                 </View>

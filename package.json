@@ -25,10 +25,7 @@
     "react-native-paper": "^4.10.1",
     "react-native-read-more-text": "^1.1.2",
     "react-native-safe-area": "^0.5.1",
-<<<<<<< HEAD
-=======
     "react-native-safe-area-context": "^3.3.2",
->>>>>>> origin
     "react-native-web": "0.17.1",
     "react-navigation": "^4.4.4",
     "react-redux": "^7.2.6",

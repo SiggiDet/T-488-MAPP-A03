@@ -11,20 +11,13 @@ import DisplayUpcomingMovies from './UpcomingMoviesFolder/DisplayUpcomingMovies'
 export default function App() {
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
       {/* <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" /> */}
-      {/* <Movies/> */}
+      <Movies/>
       {/* <DisplayUpcomingMovies/> */}
       {/* <CinemaList/> */}
       {/* <CinemaDetail/> */}
-      <Footer/>
-=======
-      <StatusBar style="auto" />
-      {/* <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" /> */}
-      <DisplayUpcomingMovies/>
->>>>>>> origin
+      {/* <Footer/> */}
     </View>
   );
 }
