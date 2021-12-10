@@ -8,7 +8,6 @@ export default StyleSheet.create({
         backgroundColor: "#D3D3D3",
         borderTopWidth: 5,
         padding: 5,
-
     },
     MovieTitleHeader : {
         left: 10,
@@ -44,7 +43,7 @@ export default StyleSheet.create({
     WatchTrailerButtonBox :{
         marginTop: 25
     },
-    container:{
+    cinemaContainer:{
         flex: 1,
         padding: 24,
         flexDirection: 'row',
@@ -83,7 +82,7 @@ export default StyleSheet.create({
         borderColor: '#c4c4c4'
       },
       ticketContainer: {
-        flex: 1,
+        justifyContent: 'center',
         borderWidth: 1,
         justifyContent: 'center',
         marginRight: 50,
@@ -123,14 +122,6 @@ export default StyleSheet.create({
         backgroundColor: "#1abc9c"
       
     },
-    descriptionTxt: {
-        fontWeight: '200',
-        fontSize: 15,
-        flex: 1,
-        width: 350,
-        padding: 15,
-        
-    },
     infoTxt: {
         fontWeight: '500',
         fontSize: 10,
@@ -142,10 +133,9 @@ export default StyleSheet.create({
     plotInfoTxt: {
       fontWeight: '500',
       fontSize: 10,
-      flex: 1,
       width: 325,
       color: '#222',
-      padding: 2,
+      paddingBottom: 2,
   },
     smallerheadline: {
         fontWeight: '200',
@@ -184,6 +174,12 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 15,
+    marginBottom: 15
   },
+  descriptionTxt: {
+    width: 300,
+    paddingTop: 15,
+    paddingBottom: 15
+  }
 });

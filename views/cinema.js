@@ -6,20 +6,16 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Lin
 
 import styles from '../Styling/styles';
 
-const user_data = {
-  username: 'kypslloyd',
-  password: 'kypler55'
-}
+import user_data from './user';
 
 // List that displays all cinemas
 const CinemaList = ({navigation}) => {
-  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MWFlMzc5ZTFiNzA2ZjEzODI4MGNlOTMiLCJnbG9iYWxhZG1pbiI6ZmFsc2UsImFkbWluIjpmYWxzZSwiYWN0aXZlIjp0cnVlLCJmdWxsbmFtZSI6Ikt5cGxlciBMbG95ZCIsImVtYWlsIjoia3lwbGVybGxveWQwMEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Imt5cHNsbG95ZCIsInBhc3N3b3JkIjoiJDJhJDA4JGFtVkNEOXBFc1N2Q0ZJdVpLT1QycXVaMThxRnhRSTB4R0NlYVdQZkc1SEtxejdkMkFIWVdTIiwiZG9tYWluIjoibG9jYWxob3N0IiwibWVzc2FnZSI6InZlcmtlZm5pIMOtIHNrw7NsYW51bSIsImlhdCI6MTYzOTE3MDU1NywiZXhwIjoxNjM5MjU2OTU3fQ.Uc2WGHLkjWbMCCOcBQHw18HxC4sHeOW5VZLNzi456AQ"
-  //const [token, setToken] = useState('')
+  //const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MWFlMzc5ZTFiNzA2ZjEzODI4MGNlOTMiLCJnbG9iYWxhZG1pbiI6ZmFsc2UsImFkbWluIjpmYWxzZSwiYWN0aXZlIjp0cnVlLCJmdWxsbmFtZSI6Ikt5cGxlciBMbG95ZCIsImVtYWlsIjoia3lwbGVybGxveWQwMEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Imt5cHNsbG95ZCIsInBhc3N3b3JkIjoiJDJhJDA4JGFtVkNEOXBFc1N2Q0ZJdVpLT1QycXVaMThxRnhRSTB4R0NlYVdQZkc1SEtxejdkMkFIWVdTIiwiZG9tYWluIjoibG9jYWxob3N0IiwibWVzc2FnZSI6InZlcmtlZm5pIMOtIHNrw7NsYW51bSIsImlhdCI6MTYzOTE3MDU1NywiZXhwIjoxNjM5MjU2OTU3fQ.Uc2WGHLkjWbMCCOcBQHw18HxC4sHeOW5VZLNzi456AQ"
   const [allCinemas, setCinemaList] = useState([])
   const [allMovies, setMovieList] = useState([])
 
-  /*
   // Get's access token
+  const [token, setToken] = useState('')
   useEffect(() => {
     (async () => {
       await fetch('https://api.kvikmyndir.is/authenticate', {
@@ -33,7 +29,6 @@ const CinemaList = ({navigation}) => {
       });
     })();
   }, []);
-  */
 
   if (token != null || token != ''){
     // Get's all cinemas
@@ -48,10 +43,10 @@ const CinemaList = ({navigation}) => {
         })
         .then( (response) => response.json())
         .then( (responseData) => {
-          setCinemaList(responseData);
+          setCinemaList(responseData.sort(function (one, another) {return one.name.localeCompare(another.name);}));
         });
       })();
-    }, []);
+    }, [token]);
 
     // Get's all movies
     useEffect(() => {
@@ -68,10 +63,8 @@ const CinemaList = ({navigation}) => {
           setMovieList(responseData);
         });
       })();
-    }, []);
+    }, [token]);
   }
-
-  const sortedCinemas = allCinemas.sort(function (one, another) {return one.name.localeCompare(another.name);});
 
   return (
       <View>
@@ -116,7 +109,7 @@ const CinemaDetail = ( {route, navigation} ) => {
   return (
     <ScrollView>
       <View key={trimedProps.id} style={styles.container}> 
-            <View style={styles.container}>
+            <View style={styles.cinemaContainer}>
               <SafeAreaView>
                 <Text style={styles.smallerheadline}>{trimedProps.name}</Text>
                 <View>
@@ -173,8 +166,8 @@ const MovieDetail = ( props ) => {
                 <Image source={{ uri: props.route.params.data.poster }} style={styles.pic} />
                 <Text style={styles.viewSmallerheadline}>{props.route.params.data.title} ({props.route.params.data.year})</Text>
                 <View>
-                  <Text style = {styles.plotInfoTxt}>{props.route.params.data.plot}</Text>
-                  <Text style = {styles.descriptionTxt}>{props.route.params.data.durationMinutes} minutes</Text>
+                  <Text style = {styles.descriptionTxt}>{props.route.params.data.plot}</Text>
+                  <Text>{props.route.params.data.durationMinutes} minutes</Text>
                   {props.route.params.data.genres.map(
                     genre => {
                       return(
@@ -218,5 +211,4 @@ const MyStack = () => {
 }
 
 export default MyStack;
-
 
