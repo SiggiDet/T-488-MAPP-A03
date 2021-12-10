@@ -124,25 +124,20 @@ const CinemaDetail = ( {route, navigation} ) => {
                   {moviesForCinema.map(
                     movie => {
                       return(
-                        <TouchableOpacity key={movie._id} style={styles.MovieBox} onPress={() => navigation.navigate('View Movie', {data: movie, movieId: trimedProps.id})}>
-                            <View style={styles.MovieTitleHeader}>
-                            <Text style={styles.MovieTitle}>{movie.title}</Text>
-                            <Text style = {styles.InformationBox}>{movie.year}</Text>
-                            </View>
-                            <View style = {styles.InformationBox}>
-                                <Image style={styles.PosterStyle}source={{uri: movie.poster}}></Image></View>
-                                    
-                                    {movie.genres.map(
-                                        genre => {
-                                            return(
-
-                                                <View key={genre["ID"]}>
-                                                <Text> {genre.Name}</Text>
-                                                </View>
-                                                )}
-                                                )}
+                        <TouchableOpacity key={movie._id} style={styles.movieContainer} onPress={() => navigation.navigate('View Movie', {data: movie, movieId: trimedProps.id})}>
+                          <Image source={{ uri: movie.poster }} style={styles.pic} />
+                          <Text>{movie.title}</Text>
+                          <Text>{movie.year}</Text>
+                          {movie.genres.map(
+                            genre => {
+                              return(
+                                <View key={genre["ID"]}>
+                                  <Text style={styles.genreTxt}>{genre.Name}</Text>
+                                </View>
+                              )
+                            }
+                          )}
                         </TouchableOpacity>
-                       
                       )
                     }
                   )}
@@ -345,50 +340,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: 200,
     paddingTop: 20
-},
-MovieBox : {
-    width: 400,
-    height: 400,
-    borderColor: '#808080',
-    backgroundColor: "#D3D3D3",
-    borderTopWidth: 5,
-    padding: 5,
-
-},
-MovieTitleHeader : {
-    left: 10,
-    width: 325,
-    padding: 10
-},
-MovieTitle :{
-    fontWeight : 'bold',
-    fontSize: 23
-},
-InformationBox : {
-    marginLeft: 10,
-    flexDirection: "row"
-},
-PosterStyle: {
-    left: 10,
-    width: 150,
-    height: 250,
-    borderRadius: 10,
-    alignSelf: "flex-start"
-},
-TextDescriptionStyle :{
-    fontSize: 16,
-    fontWeight: 'bold',
-    left: 10
-},
-TextInformationBox : {
-    width: 180,
-    fontSize: 13,
-    marginLeft: 5,
-    left: 10
-},
-BuyButtonBox :{
-    marginTop: 25
-},
-
-
+}
 });
