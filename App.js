@@ -11,20 +11,19 @@ import DisplayUpcomingMovies from './UpcomingMoviesFolder/DisplayUpcomingMovies'
 
 export default function App() {
   return (
+    
     <NavigationContainer>
       <MyStack />
     </NavigationContainer>
+    
 
     /*
     <View style={styles.container}>
-      {/* <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" /> */}
-      {/* <Movies/> */}
-      {/* <DisplayUpcomingMovies/> */}
-      {/* <CinemaList/> */}
-      {/* <CinemaDetail/> */}
-      {/* <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Open up App.js to start working on your app!</Text>
+      <Movies/>
+      <DisplayUpcomingMovies/>
+      <CinemaList/>
+      <CinemaDetail/>
     </View>
 
     */
