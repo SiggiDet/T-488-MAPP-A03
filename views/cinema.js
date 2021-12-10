@@ -1,41 +1,114 @@
-import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Linking} from 'react-native';
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import CinemaDetail from './cinemadetail';
 
 const customData = require('../DummyData/Cinema');
 
-
-const  CinemaList = () => {
-    return (
-        <View>
-            <View style={styles.header}>
-            <Text style={styles.headline}>Bíó</Text></View>
-            
-           <ScrollView>
-            <View style={styles.container}>
-                {customData.Cinema.map(
-                    Cinema => {
-                        return(
-                                <SafeAreaView>
-                                <TouchableOpacity key={Cinema.id} title="View Cinema" onPress={() => navigation.navigate('View Cinema', {data: Cinema})}>
-                                    <View style={styles.nameContainer}>
-                                    <View style={styles.row}>
-                                        <Text style = {styles.nameTxt}>{Cinema.Name}</Text>
-                                        <Text style = {styles.urlTxt} onPress={() => {Linking.openURL(Cinema.Website);}}>Vefsíða</Text>
-                                    </View> 
-                                    </View>
-                                </TouchableOpacity>
-                                </SafeAreaView>
-           
-                            )})}
-            </View>
-            </ScrollView>
-            </View>
-
-        )
-
+const user_data = {
+  username: 'kypslloyd',
+  password: 'kypler55'
 }
-export default CinemaList
+
+// List that displays all cinemas
+const CinemaList = ({navigation}) => {
+
+  //const [token, setToken] = useState('')
+  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MWFlMzc5ZTFiNzA2ZjEzODI4MGNlOTMiLCJnbG9iYWxhZG1pbiI6ZmFsc2UsImFkbWluIjpmYWxzZSwiYWN0aXZlIjp0cnVlLCJmdWxsbmFtZSI6Ikt5cGxlciBMbG95ZCIsImVtYWlsIjoia3lwbGVybGxveWQwMEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Imt5cHNsbG95ZCIsInBhc3N3b3JkIjoiJDJhJDA4JGFtVkNEOXBFc1N2Q0ZJdVpLT1QycXVaMThxRnhRSTB4R0NlYVdQZkc1SEtxejdkMkFIWVdTIiwiZG9tYWluIjoibG9jYWxob3N0IiwibWVzc2FnZSI6InZlcmtlZm5pIMOtIHNrw7NsYW51bSIsImlhdCI6MTYzOTA3NzExNCwiZXhwIjoxNjM5MTYzNTE0fQ.FUxHWg8KR5rm6QS8Ooqq-Rt9R2z_FcDCVxUd4b4OrG0"
+  const [allCinemas, setCinemaList] = useState([])
+  const [allMovies, setMovieList] = useState([])
+
+  
+  /*
+  // Get's access token
+  useEffect(() => {
+    (async () => {
+      await fetch('https://api.kvikmyndir.is/authenticate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user_data)
+      })
+      .then((response) => response.json())
+      .then((responseData) => {
+          setToken(responseData.token);
+      });
+    })();
+  }, []);
+  */
+
+  // Get's all cinemas
+  useEffect(() => {
+    (async () => {
+      await fetch('https://api.kvikmyndir.is/theaters', {
+        method: 'GET',
+        headers: {
+          'x-access-token' : token,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then( (response) => response.json())
+      .then( (responseData) => {
+        setCinemaList(responseData);
+      });
+    })();
+  }, []);
+
+  // Get's all movies
+  useEffect(() => {
+    (async () => {
+      await fetch('https://api.kvikmyndir.is/movies', {
+        method: 'GET',
+        headers: {
+          'x-access-token' : token,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then( (response) => response.json())
+      .then( (responseData) => {
+        setMovieList(responseData);
+      });
+    })();
+  }, []);
+
+  return (
+      <View>
+          <ScrollView>
+            <View style={styles.container}>
+              {allCinemas.map(
+                Cinema => {
+                  return(
+                    <TouchableOpacity key={Cinema.id} onPress={() => navigation.navigate('View Cinema', {data: Cinema, movies: allMovies})}>
+                      <View style={styles.nameContainer}>
+                        <View style={styles.row}>
+                          <Text style = {styles.nameTxt}>{Cinema.name}</Text>
+                          <Text style = {styles.urlTxt} onPress={() => {Linking.openURL(Cinema.website);}}>Vefsíða</Text>
+                        </View> 
+                      </View>
+                    </TouchableOpacity>
+                  )   
+                }
+              )}
+            </View>
+          </ScrollView>
+      </View>
+      )
+}
+
+
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="All Cinemas" component={CinemaList} />
+      <Stack.Screen name="View Cinema" component={CinemaDetail} />
+    </Stack.Navigator>
+  );
+}
+
+export default MyStack;
 
 
 
@@ -45,6 +118,7 @@ const styles = StyleSheet.create({
         padding: 24,
         flexDirection: 'row',
         flexWrap: 'wrap',
+
       },
       row: {
         borderColor: '#DCDCDC',
@@ -76,7 +150,7 @@ const styles = StyleSheet.create({
 
       },
       header: {
-        padding: 15,
+        padding: 5,
         backgroundColor: "#1abc9c"
       }
 

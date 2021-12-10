@@ -11,6 +11,7 @@ function Cinemas() {
   );
 }
 
+
 function UpcomingMovies() {
   return (
     <View style={styles.text2}>
