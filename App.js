@@ -13,7 +13,7 @@ export default function App() {
   return (
     
     <NavigationContainer>
-      <MyStack />
+      <Footer />
     </NavigationContainer>
     
 
@@ -25,7 +25,6 @@ export default function App() {
       <CinemaList/>
       <CinemaDetail/>
     </View>
-
     */
     
     
