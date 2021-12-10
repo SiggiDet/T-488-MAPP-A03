@@ -42,15 +42,18 @@ export default UpcomingMovieSite;
 
 const styles = StyleSheet.create({
     MovieBox : {
-        width: 350,
-        height: 300,
-        borderColor: '#28dc2b',
-        backgroundColor: "#86ee9d",
+        width: 400,
+        height: 350,
+        borderColor: '#808080',
+        backgroundColor: "#D3D3D3",
         borderTopWidth: 5,
-        
+        padding: 5,
+
     },
     MovieTitleHeader : {
+        left: 10,
         width: 325,
+        padding: 10
     },
     MovieTitle :{
         fontWeight : 'bold',
@@ -61,6 +64,7 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     PosterStyle: {
+        left: 10,
         width: 150,
         height: 250,
         borderRadius: 10,
@@ -68,12 +72,14 @@ const styles = StyleSheet.create({
     },
     TextDescriptionStyle :{
         fontSize: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        left: 10
     },
     TextInformationBox : {
         width: 180,
         fontSize: 13,
-        marginLeft: 5
+        marginLeft: 5,
+        left: 10
     },
     WatchTrailerButtonBox :{
         marginTop: 25

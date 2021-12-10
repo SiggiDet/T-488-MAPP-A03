@@ -6,6 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import CinemaDetail from './cinemadetail';
 
 const customData = require('../DummyData/Cinema');
+const Cinemas = customData.Cinema.sort(function (one, another) {return one.Name.localeCompare(another.Name);});
+
 
 const user_data = {
   username: 'kypslloyd',
@@ -71,7 +73,6 @@ const CinemaList = ({navigation}) => {
       });
     })();
   }, []);
-
   return (
       <View>
           <ScrollView>
@@ -155,4 +156,7 @@ const styles = StyleSheet.create({
       }
 
     
+
+
+      
     });

@@ -5,9 +5,8 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import UpcomingMovieSite from './UpcomingMovieSite';
 
-
 const customData = require('../DummyData/UpcomingMovies.json');
-const UpcomingMovies = customData.UpcomingMovies.sort(function (one, another) {return one.Release.localeCompare(another.Release);});
+const UpcomingMovies = customData.UpcomingMovies.sort((a, b) => new Date(...a.Release.split('.').reverse()) - new Date(...b.Release.split('.').reverse()));
 
 const  DisplayUpcomingMovies= (props) => {
     return (

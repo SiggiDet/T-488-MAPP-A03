@@ -1,42 +1,54 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-function Cinemas() {
-  return (
-    <View style={styles.text1}>
-      <Text>Cinemas</Text>
-    </View>
-  );
-}
+// Include Imports Here 
+const Cinema = <Text>Hello</Text>
+const Upcoming = <Text>Hello</Text>
 
 
-function UpcomingMovies() {
-  return (
-    <View style={styles.text2}>
-      <Text>Upcoming Movies</Text>
-    </View>
-  );
-}
+//Screen names
+const cinemaName = "Cinema";
+const upcomingName = "Upcoming";
 
 const Tab = createBottomTabNavigator();
 
-export default function Footer() {
+function Footer() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Cinemas" component={Cinemas} />
-        <Tab.Screen name="Settings" component={UpcomingMovies} />
+      <Tab.Navigator
+        initialRouteName={cinemaName}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            let rn = route.name;
+
+            if (rn === cinemaName) {
+              iconName = focused ? 'home' : 'home-outline';
+
+            } else if (rn === upcomingName) {
+              iconName = focused ? 'list' : 'list-outline';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'grey',
+          labelStyle: { paddingBottom: 10, fontSize: 10 },
+          style: { padding: 10, height: 70}
+        }}>
+
+        <Tab.Screen name={cinemaName} component={Upcoming} />
+        <Tab.Screen name={upcomingName} component={Cinema} />
+
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-
-    text: {
-
-    }
-
-}) 
+export default Footer;
