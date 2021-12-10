@@ -53,7 +53,7 @@ const  DisplayUpcomingMovies = () => {
         <ScrollView delaysContentTouches = {true} >
             {newUpcomingMovies.reverse().map(
                 allUpcoming => {
-                    if (allUpcoming.trailers == undefined || allUpcoming.trailers[0] == undefined || allUpcoming.trailers[0].results == undefined){
+                    if (allUpcoming.trailers == undefined || allUpcoming.trailers[0] == undefined || allUpcoming.trailers[0].results == undefined ||allUpcoming.trailers[0].results[0] == undefined){
                         return(
                             <View key={allUpcoming._id} style = {styles.MovieBox}>
                                 <View style = {styles.MovieTitleHeader}>
@@ -74,6 +74,7 @@ const  DisplayUpcomingMovies = () => {
                         )
                     } else {
                         return(
+
                             <View key={allUpcoming._id} style = {styles.MovieBox}>
                                 <View style = {styles.MovieTitleHeader}>
                                     <Text style={styles.MovieTitle}> {allUpcoming.title}</Text>
