@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import DisplayUpcomingMovies from '../UpcomingMoviesFolder/DisplayUpcomingMovies';
 import CinemaList from './cinema';
-
+import styles from '../Styling/styles';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -39,18 +39,3 @@ const Footer = () => {
 
 export default Footer;
 
-const styles = StyleSheet.create({
-  TabBarStyle : {
-    backgroundColor : '#216e6b'
-  },
-  ViewCinemaStyle :{
-    flex: 1, 
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  ViewUpcomingMoviesStyle : {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-}) 

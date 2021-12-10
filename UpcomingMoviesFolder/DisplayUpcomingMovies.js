@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, Button, Linking, ScrollView } from 'react-native';
 import ReadMore from 'react-native-read-more-text';
+import styles from '../Styling/styles'
 
 const user_data = {
     username: 'kypslloyd',
@@ -102,49 +103,3 @@ const  DisplayUpcomingMovies = () => {
     )
 }
 export default DisplayUpcomingMovies;
-
-const styles = StyleSheet.create({
-    MovieBox : {
-        width: 400,
-        height: 350,
-        borderColor: '#808080',
-        backgroundColor: "#D3D3D3",
-        borderTopWidth: 5,
-        padding: 5,
-
-    },
-    MovieTitleHeader : {
-        left: 10,
-        width: 325,
-        padding: 10
-    },
-    MovieTitle :{
-        fontWeight : 'bold',
-        fontSize: 23
-    },
-    InformationBox : {
-        marginLeft: 10,
-        flexDirection: "row"
-    },
-    PosterStyle: {
-        left: 10,
-        width: 150,
-        height: 250,
-        borderRadius: 10,
-        alignSelf: "flex-start"
-    },
-    TextDescriptionStyle :{
-        fontSize: 16,
-        fontWeight: 'bold',
-        left: 10
-    },
-    TextInformationBox : {
-        width: 180,
-        fontSize: 13,
-        marginLeft: 5,
-        left: 10
-    },
-    WatchTrailerButtonBox :{
-        marginTop: 25
-    }
-});
