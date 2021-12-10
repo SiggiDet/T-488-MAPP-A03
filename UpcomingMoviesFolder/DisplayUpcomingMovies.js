@@ -53,7 +53,26 @@ const  DisplayUpcomingMovies = () => {
         <ScrollView delaysContentTouches = {true} >
             {newUpcomingMovies.reverse().map(
                 allUpcoming => {
-                    try{
+                    if (allUpcoming.trailers == undefined || allUpcoming.trailers[0] == undefined || allUpcoming.trailers[0].results == undefined){
+                        return(
+                            <View key={allUpcoming._id} style = {styles.MovieBox}>
+                                <View style = {styles.MovieTitleHeader}>
+                                    <Text style={styles.MovieTitle}> {allUpcoming.title}</Text>
+                                </View>    
+                                <View style = {styles.InformationBox}>
+                                    <Image  style = {styles.PosterStyle} source={{uri: allUpcoming.poster}}/>    
+                                    <View style = {styles.TextInformationBox}>
+                                        <Text style = {styles.TextDescriptionStyle}>Description: </Text>
+                                        <View>
+                                            <ReadMore numberOfLines = {3}> {allUpcoming.plot}</ReadMore>
+                                        </View>   
+                                        <Text style = {styles.TextDescriptionStyle}>Release Date: </Text>
+                                        <Text> {allUpcoming["release-dateIS"]}</Text>                                        
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    } else {
                         return(
                             <View key={allUpcoming._id} style = {styles.MovieBox}>
                                 <View style = {styles.MovieTitleHeader}>
@@ -71,25 +90,6 @@ const  DisplayUpcomingMovies = () => {
                                         <View style = {styles.WatchTrailerButtonBox}>
                                             <Button title = 'Watch Trailer' onPress = {() => Linking.openURL(allUpcoming.trailers[0].results[0].url) }/>
                                         </View>    
-                                    </View>
-                                </View>
-                            </View>
-                        )
-                    } catch (e) {
-                        return(
-                            <View key={allUpcoming._id} style = {styles.MovieBox}>
-                                <View style = {styles.MovieTitleHeader}>
-                                    <Text style={styles.MovieTitle}> {allUpcoming.title}</Text>
-                                </View>    
-                                <View style = {styles.InformationBox}>
-                                    <Image  style = {styles.PosterStyle} source={{uri: allUpcoming.poster}}/>    
-                                    <View style = {styles.TextInformationBox}>
-                                        <Text style = {styles.TextDescriptionStyle}>Description: </Text>
-                                        <View>
-                                            <ReadMore numberOfLines = {3}> {allUpcoming.plot}</ReadMore>
-                                        </View>   
-                                        <Text style = {styles.TextDescriptionStyle}>Release Date: </Text>
-                                        <Text> {allUpcoming["release-dateIS"]}</Text>                                        
                                     </View>
                                 </View>
                             </View>
