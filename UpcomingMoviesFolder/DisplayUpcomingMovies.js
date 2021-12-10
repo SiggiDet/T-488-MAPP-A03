@@ -48,10 +48,10 @@ const  DisplayUpcomingMovies = () => {
         })();
         }, []);
     }
-    const newUpcomingMovies = allUpcoming.sort((a, b) => new Date(...a["release-dateIS"].split('-').reverse()) - new Date(...b["release-dateIS"].split('-').reverse()));
+    const newUpcomingMovies = allUpcoming.sort((a, b) => new Date(...a["release-dateIS"].split('-')) - new Date(...b["release-dateIS"].split('-')));
     return (
         <ScrollView delaysContentTouches = {true} >
-            {newUpcomingMovies.reverse().map(
+            {newUpcomingMovies.map(
                 allUpcoming => {
                     if (allUpcoming.trailers == undefined || allUpcoming.trailers[0] == undefined || allUpcoming.trailers[0].results == undefined ||allUpcoming.trailers[0].results[0] == undefined){
                         return(
