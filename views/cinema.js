@@ -16,7 +16,6 @@ const CinemaList = ({navigation}) => {
   const [allCinemas, setCinemaList] = useState([])
   const [allMovies, setMovieList] = useState([])
 
-
   /*
   // Get's access token
   useEffect(() => {
@@ -29,7 +28,6 @@ const CinemaList = ({navigation}) => {
       .then((response) => response.json())
       .then((responseData) => {
           setToken(responseData.token);
-          console.log("---New token: " + token)
       });
     })();
   }, []);

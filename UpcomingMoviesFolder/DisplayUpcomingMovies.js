@@ -49,41 +49,42 @@ const  DisplayUpcomingMovies = () => {
         })();
         }, []);
     }
-    
     const newUpcomingMovies = allUpcoming.sort((a, b) => new Date(...a["release-dateIS"].split('-').reverse()) - new Date(...b["release-dateIS"].split('-').reverse()));
-
     return (
         <ScrollView delaysContentTouches = {true} >
             {newUpcomingMovies.reverse().map(
                 allUpcoming => {
-                    return(
-                        <View key={allUpcoming._id} style = {styles.MovieBox}>
-                            <View style = {styles.MovieTitleHeader}>
-                                <Text style={styles.MovieTitle}> {allUpcoming.title}</Text>
-                            </View>
-
-                            <View style = {styles.InformationBox}>
-                                <Image  style = {styles.PosterStyle} source={{uri: allUpcoming.poster}}/>
-
-                                <View style = {styles.TextInformationBox}>
-                                    <Text style = {styles.TextDescriptionStyle}>Description: </Text>
-                                    <View>
-                                        <ReadMore numberOfLines = {3}> {allUpcoming.plot}</ReadMore>
+                    try{
+                        return(
+                            <View key={allUpcoming._id} style = {styles.MovieBox}>
+                                <View style = {styles.MovieTitleHeader}>
+                                    <Text style={styles.MovieTitle}> {allUpcoming.title}</Text>
+                                </View>
+    
+                                <View style = {styles.InformationBox}>
+                                    <Image  style = {styles.PosterStyle} source={{uri: allUpcoming.poster}}/>
+    
+                                    <View style = {styles.TextInformationBox}>
+                                        <Text style = {styles.TextDescriptionStyle}>Description: </Text>
+                                        <View>
+                                            <ReadMore numberOfLines = {3}> {allUpcoming.plot}</ReadMore>
+                                        </View>
+    
+                                        <Text style = {styles.TextDescriptionStyle}>Release Date: </Text>
+                                        <Text> {allUpcoming["release-dateIS"]}</Text>
+                                        
+                                        <View style = {styles.WatchTrailerButtonBox}>
+                                            <Button title = 'Watch Trailer' onPress = {() => Linking.openURL(allUpcoming.trailers[0].results[0].url) }/>
+                                        </View>
+    
                                     </View>
-
-                                    <Text style = {styles.TextDescriptionStyle}>Release Date: </Text>
-                                    <Text> {allUpcoming["release-dateIS"]}</Text>
-                                    
-                                    {/*
-                                    <View style = {styles.WatchTrailerButtonBox}>
-                                        <Button title = 'Watch Trailer' onPress = {() => Linking.openURL(props.Movie.Trailer) }/>
-                                    </View>
-                                    */}
-
                                 </View>
                             </View>
-                        </View>
-                    )}
+                        )
+                    } catch (e) {
+                        
+                    }
+                }
             )}
         </ScrollView>
     )
