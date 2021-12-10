@@ -8,6 +8,7 @@ import Footer from './views/footer'
 import { NavigationContainer} from '@react-navigation/native';
 
 import DisplayUpcomingMovies from './UpcomingMoviesFolder/DisplayUpcomingMovies';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (

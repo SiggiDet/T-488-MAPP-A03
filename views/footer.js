@@ -1,54 +1,58 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-// Include Imports Here 
-const Cinema = <Text>Hello</Text>
-const Upcoming = <Text>Hello</Text>
+import DisplayUpcomingMovies from '../UpcomingMoviesFolder/DisplayUpcomingMovies';
+import CinemaList from './cinema';
 
 
-//Screen names
-const cinemaName = "Cinema";
-const upcomingName = "Upcoming";
+const BottomTab = createBottomTabNavigator();
 
-const Tab = createBottomTabNavigator();
 
-function Footer() {
+const Footer = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName={cinemaName}
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            let rn = route.name;
+    <BottomTab.Navigator screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let iconName;
 
-            if (rn === cinemaName) {
-              iconName = focused ? 'home' : 'home-outline';
+        if (route.name === 'Cinemas') {
+          iconName = focused
+            ? 'ios-film'
+            : 'ios-film-outline';
+        } else if (route.name === 'Upcoming Movies') {
+          iconName = focused ? 'ios-today' : 'ios-today-outline';
+        }
 
-            } else if (rn === upcomingName) {
-              iconName = focused ? 'list' : 'list-outline';
-            }
+        // You can return any component that you like here!
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+      tabBarActiveTintColor: '#0ac5d1',
+      tabBarInactiveTintColor: '#034044',
+    })}>
+      <BottomTab.Screen name="Cinemas" component={CinemaList} />
+        
+      <BottomTab.Screen name="Upcoming Movies" component={DisplayUpcomingMovies} />
+    </BottomTab.Navigator>
 
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'grey',
-          labelStyle: { paddingBottom: 10, fontSize: 10 },
-          style: { padding: 10, height: 70}
-        }}>
-
-        <Tab.Screen name={cinemaName} component={Upcoming} />
-        <Tab.Screen name={upcomingName} component={Cinema} />
-
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+  )
 }
 
 export default Footer;
+
+const styles = StyleSheet.create({
+  TabBarStyle : {
+    backgroundColor : '#216e6b'
+  },
+  ViewCinemaStyle :{
+    flex: 1, 
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  ViewUpcomingMoviesStyle : {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+}) 
