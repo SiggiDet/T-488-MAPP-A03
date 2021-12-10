@@ -7,10 +7,11 @@ import Movies from './views/movies';
 import Footer from './views/footer'
 
 import DisplayUpcomingMovies from './UpcomingMoviesFolder/DisplayUpcomingMovies';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <NavigationContainer style={styles.container}>
       {/* <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" /> */}
       {/* <Movies/> */}
@@ -18,12 +19,12 @@ export default function App() {
       {/* <CinemaList/> */}
       {/* <CinemaDetail/> */}
       <Footer/>
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" /> */}
       {/* <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" /> */}
-      <Movies/>
-      <DisplayUpcomingMovies/>
-    </View>
+      {/* <Movies/> */}
+      {/* <DisplayUpcomingMovies/> */}
+    </NavigationContainer>
   );
 }
 
