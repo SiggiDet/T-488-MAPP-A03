@@ -8,29 +8,28 @@ const UpcomingMovies = customData.UpcomingMovies;
 
 const  UpcomingMovieSite = (props) => {
     return(
-        <View style = {styles.MovieBox}>
+        <View key={props.Movie._id} style = {styles.MovieBox}>
             <View style = {styles.MovieTitleHeader}>
-                <Text style={styles.MovieTitle}> {props.Movie.Name}</Text>
+                <Text style={styles.MovieTitle}> {props.Movie.title}</Text>
             </View>
 
             <View style = {styles.InformationBox}>
-                <Image  style = {styles.PosterStyle} source={{uri: props.Movie.Image}}/>
+                <Image  style = {styles.PosterStyle} source={{uri: props.Movie.poster}}/>
 
                 <View style = {styles.TextInformationBox}>
                     <Text style = {styles.TextDescriptionStyle}>Description: </Text>
                     <View>
-                        <ReadMore numberOfLines = {3}> {props.Movie.Plot}</ReadMore>
+                        <ReadMore numberOfLines = {3}> {props.Movie.plot}</ReadMore>
                     </View>
 
-                    <Text style = {styles.TextDescriptionStyle}>Length: </Text>
-                    <Text> {props.Movie.Duration}</Text>
-
                     <Text style = {styles.TextDescriptionStyle}>Release Date: </Text>
-                    <Text> {props.Movie.Release}</Text>
-
+                    <Text> {props.Movie["release-dateIS"]}</Text>
+                    
+                    {/*
                     <View style = {styles.WatchTrailerButtonBox}>
                         <Button title = 'Watch Trailer' onPress = {() => Linking.openURL(props.Movie.Trailer) }/>
                     </View>
+                    */}
 
                 </View>
             </View>
