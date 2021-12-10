@@ -4,9 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Linking, Image, Button } from 'react-native';
 
-const customData = require('../DummyData/Cinema');
-const Cinemas = customData.Cinema.sort(function (one, another) {return one.Name.localeCompare(another.Name);});
-
 const user_data = {
   username: 'kypslloyd',
   password: 'kypler55'
@@ -15,12 +12,10 @@ const user_data = {
 // List that displays all cinemas
 const CinemaList = ({navigation}) => {
 
-  //const [token, setToken] = useState('')
-  const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MWFlMzc5ZTFiNzA2ZjEzODI4MGNlOTMiLCJnbG9iYWxhZG1pbiI6ZmFsc2UsImFkbWluIjpmYWxzZSwiYWN0aXZlIjp0cnVlLCJmdWxsbmFtZSI6Ikt5cGxlciBMbG95ZCIsImVtYWlsIjoia3lwbGVybGxveWQwMEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Imt5cHNsbG95ZCIsInBhc3N3b3JkIjoiJDJhJDA4JGFtVkNEOXBFc1N2Q0ZJdVpLT1QycXVaMThxRnhRSTB4R0NlYVdQZkc1SEtxejdkMkFIWVdTIiwiZG9tYWluIjoibG9jYWxob3N0IiwibWVzc2FnZSI6InZlcmtlZm5pIMOtIHNrw7NsYW51bSIsImlhdCI6MTYzOTE2MDgyMywiZXhwIjoxNjM5MjQ3MjIzfQ.Z9qieikNdLWLbgQ9AF3EwPrpH3zy0dW5Wcb1APfVOO8"
+  const [token, setToken] = useState('')
   const [allCinemas, setCinemaList] = useState([])
   const [allMovies, setMovieList] = useState([])
 
-  /*
   // Get's access token
   useEffect(() => {
     (async () => {
@@ -35,49 +30,50 @@ const CinemaList = ({navigation}) => {
       });
     })();
   }, []);
-  console.log(token)
-  */
 
-  // Get's all cinemas
-  useEffect(() => {
-    (async () => {
-      await fetch('https://api.kvikmyndir.is/theaters', {
-        method: 'GET',
-        headers: {
-          'x-access-token' : token,
-          'Content-Type': 'application/json'
-        }
-      })
-      .then( (response) => response.json())
-      .then( (responseData) => {
-        setCinemaList(responseData);
-      });
-    })();
-  }, []);
+  if (token != null || token != ''){
+    // Get's all cinemas
+    useEffect(() => {
+      (async () => {
+        await fetch('https://api.kvikmyndir.is/theaters', {
+          method: 'GET',
+          headers: {
+            'x-access-token' : token,
+            'Content-Type': 'application/json'
+          }
+        })
+        .then( (response) => response.json())
+        .then( (responseData) => {
+          setCinemaList(responseData);
+        });
+      })();
+    }, []);
 
-  // Get's all movies
-  useEffect(() => {
-    (async () => {
-      await fetch('https://api.kvikmyndir.is/movies', {
-        method: 'GET',
-        headers: {
-          'x-access-token' : token,
-          'Content-Type': 'application/json'
-        }
-      })
-      .then( (response) => response.json())
-      .then( (responseData) => {
-        setMovieList(responseData);
-      });
-    })();
-  }, []);
+    // Get's all movies
+    useEffect(() => {
+      (async () => {
+        await fetch('https://api.kvikmyndir.is/movies', {
+          method: 'GET',
+          headers: {
+            'x-access-token' : token,
+            'Content-Type': 'application/json'
+          }
+        })
+        .then( (response) => response.json())
+        .then( (responseData) => {
+          setMovieList(responseData);
+        });
+      })();
+    }, []);
+  }
 
+  const sortedCinemas = allCinemas.sort(function (one, another) {return one.name.localeCompare(another.name);});
 
   return (
       <View>
           <ScrollView>
             <View style={styles.container}>
-              {allCinemas.map(
+              {sortedCinemas.map(
                 Cinema => {
                   return(
                     <TouchableOpacity key={Cinema.id} onPress={() => navigation.navigate('View Cinema', {data: Cinema, movies: allMovies})}>
