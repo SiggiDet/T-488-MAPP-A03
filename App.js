@@ -1,13 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MyStack from './views/cinema';
-import CinemaDetail from './views/cinemadetail';
-import Movies from './views/movies';
 import Footer from './views/footer'
 import { NavigationContainer} from '@react-navigation/native';
-
-import DisplayUpcomingMovies from './UpcomingMoviesFolder/DisplayUpcomingMovies';
 
 export default function App() {
   return (

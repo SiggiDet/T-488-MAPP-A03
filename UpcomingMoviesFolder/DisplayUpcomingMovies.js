@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, Button, Linking, ScrollView } from 'react-native';
-import UpcomingMovieSite from './UpcomingMovieSite';
 import ReadMore from 'react-native-read-more-text';
 
 const user_data = {
