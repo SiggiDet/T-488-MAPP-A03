@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Cinema = <Text>Hello</Text>
 const Upcoming = <Text>Hello</Text>
 
+
 //Screen names
 const cinemaName = "Cinema";
 const upcomingName = "Upcoming";
