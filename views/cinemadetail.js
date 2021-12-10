@@ -1,41 +1,43 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Linking } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Linking, Image } from 'react-native';
 
-
-const customData = require('../DummyData/Cinema');
-
-
-const  CinemaList = () => {
+const CinemaDetail = ( props ) => {
+    //console.log(props)
+    trimedProps = JSON.parse(JSON.stringify(props.route.params.data).replace(/\\t/g, '').replace(/<b>/g,' ').replace(/<br>/g,''))
+    moviesList = props.route.params.movies
     return (
         <View>
-            <View style={styles.header}>
-            <Text style={styles.headline}>Bíó</Text></View>
-           <ScrollView>
-            <View style={styles.container}>
-                {customData.Cinema.filter(Cinema => Cinema.id === 5).map((Cinema) =>{
+            <ScrollView>
+              <View style={styles.container}>
+                <SafeAreaView>
+                  <Text style={styles.smallerheadline}>{trimedProps.name}</Text>
+                  <View>
+                    <Text style = {styles.infoTxt}>Heimilisfang: {trimedProps.address}, {trimedProps.city}</Text>
+                    <Text style = {styles.descriptionTxt}>{trimedProps.description}</Text>
+                    <Text style = {styles.infoTxt}>Vefsíða: {trimedProps.website}</Text>
+                    <Text style = {styles.infoTxt}>Sími: {trimedProps.phone}</Text>
+                    <Text style = {styles.smallerheadline}>Í sýningu</Text>
+                    {moviesList.map(
+                      movie => {
                         return(
-                            <SafeAreaView>
-                                    <Text style={styles.smallerheadline}>{Cinema.Name}</Text>
-                                <View>
-                                    <Text style = {styles.descriptionTxt}>{Cinema.Description}</Text>
-                                    <Text style = {styles.infoTxt}>Heimilisfang: {Cinema.Address}</Text>
-                                    <Text style = {styles.infoTxt}>Vefsíða: {Cinema.Website}</Text>
-                                    <Text style = {styles.infoTxt}>Sími: {Cinema.Phone}</Text>
-                                    <Text style = {styles.smallerheadline}>Í sýningu</Text>
-                                </View> 
-                               
-                            </SafeAreaView>
-           
-                        )})}
-            </View>
+                          <View key={movie._id}>
+                            <Image source={{ uri: movie.poster }} style={styles.pic} />
+                            <Text>{movie.title}</Text>
+                            <Text>{movie.year}</Text>
+                            <Text>{movie.genre}</Text>
+                          </View>
+                        )
+                      }
+                    )}
+                  </View>
+                </SafeAreaView>
+              </View>
             </ScrollView>
-            </View>
-
-        )
+        </View>
+    )
 }
-export default CinemaList
 
-
+export default CinemaDetail
 
 const styles = StyleSheet.create({
 
@@ -56,6 +58,12 @@ const styles = StyleSheet.create({
             fontSize: 18,
             width:170,
           },
+          pic: {
+            borderRadius: 2,
+            width: 120,
+            height: 120,
+          },
+
           urlTxt: {
             fontWeight: '200',
             color: '#222',
