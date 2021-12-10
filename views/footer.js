@@ -24,15 +24,13 @@ const Footer = () => {
         } else if (route.name === 'Upcoming Movies') {
           iconName = focused ? 'ios-today' : 'ios-today-outline';
         }
-
-        // You can return any component that you like here!
         return <Ionicons name={iconName} size={size} color={color} />;
       },
       tabBarActiveTintColor: '#0ac5d1',
       tabBarInactiveTintColor: '#034044',
     })}>
-      <BottomTab.Screen name="Cinemas" component={CinemaList} />
-        
+
+      <BottomTab.Screen options = {{headerShown: false}} name="Cinemas" component={CinemaList} />
       <BottomTab.Screen name="Upcoming Movies" component={DisplayUpcomingMovies} />
     </BottomTab.Navigator>
 

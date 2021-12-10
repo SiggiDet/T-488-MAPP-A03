@@ -11,9 +11,11 @@ import DisplayUpcomingMovies from './UpcomingMoviesFolder/DisplayUpcomingMovies'
 
 export default function App() {
   return (
+    
     <NavigationContainer>
-      <MyStack />
+      <Footer />
     </NavigationContainer>
+    
 
     /*
     <View style={styles.container}>
